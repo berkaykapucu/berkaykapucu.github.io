@@ -1,135 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Start Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh; /* Ensures the page takes at least the full viewport height */
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Architectural Portfolio</title>
+  <style>
+    :root {
+      --font: 'Helvetica Neue', sans-serif;
+      --bg: #ffffff;
+      --text: #222222;
+      --accent: #888888;
+    }
 
-        .container {
-            background-color: #fff;
-            padding: 20px 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h1 {
-            color: #007bff;
-            margin-bottom: 20px;
-        }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
 
-        .search-bar {
-            margin-bottom: 20px;
-        }
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
 
-        .search-bar input[type="text"] {
-            width: calc(100% - 80px); /* Adjust width to account for button */
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
+    header h1 {
+      font-size: 2.5em;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
 
-        .search-bar button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-left: 5px;
-        }
+    header p {
+      color: var(--accent);
+      font-size: 1em;
+      margin-top: 10px;
+    }
 
-        .search-bar button:hover {
-            background-color: #0056b3;
-        }
+    section {
+      margin-bottom: 60px;
+    }
 
-        .links-section {
-            margin-top: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-        }
+    .project {
+      margin-bottom: 40px;
+    }
 
-        .link-item a {
-            display: block;
-            padding: 10px 15px;
-            background-color: #e9e9e9;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
+    .project img {
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+      border: 1px solid #eee;
+    }
 
-        .link-item a:hover {
-            background-color: #dcdcdc;
-            color: #0056b3;
-        }
+    .project h2 {
+      font-size: 1.5em;
+      font-weight: 400;
+    }
 
-        footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #666;
-        }
-    </style>
+    .project p {
+      color: var(--accent);
+      font-size: 0.95em;
+      margin-top: 5px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--accent);
+      margin-top: 80px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 15px;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to Your Personal Start Page! 🚀</h1>
-        <p>Quickly access your favorite sites and search the web.</p>
 
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search Google...">
-            <button onclick="performSearch()">Search</button>
-        </div>
+  <header>
+    <h1>Jane Doe</h1>
+    <p>Architect | Designer | Minimalist</p>
+  </header>
 
-        <div class="links-section">
-            <div class="link-item"><a href="https://www.google.com" target="_blank">Google</a></div>
-            <div class="link-item"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
-            <div class="link-item"><a href="https://github.com" target="_blank">GitHub</a></div>
-            <div class="link-item"><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></div>
-            <div class="link-item"><a href="https://www.reddit.com" target="_blank">Reddit</a></div>
-            <div class="link-item"><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></div>
-            <div class="link-item"><a href="#" onclick="alert('Add your custom link here!'); return false;">Custom Link 1</a></div>
-            <div class="link-item"><a href="#" onclick="alert('Add another custom link here!'); return false;">Custom Link 2</a></div>
-        </div>
+  <section>
+    <div class="project">
+      <h2>Modern Courtyard House</h2>
+      <p>Residential Architecture – 2024</p>
+      <img src="https://via.placeholder.com/900x600?text=Project+1" alt="Modern Courtyard House" />
     </div>
 
-    <footer>
-        <p>&copy; 2025 My Start Page. All rights reserved.</p>
-    </footer>
+    <div class="project">
+      <h2>Urban Loft Renovation</h2>
+      <p>Interior Architecture – 2023</p>
+      <img src="https://via.placeholder.com/900x600?text=Project+2" alt="Urban Loft Renovation" />
+    </div>
 
-    <script>
-        function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            if (query) {
-                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
-            }
-        }
+    <div class="project">
+      <h2>Community Library Pavilion</h2>
+      <p>Public Architecture – 2022</p>
+      <img src="https://via.placeholder.com/900x600?text=Project+3" alt="Library Pavilion" />
+    </div>
+  </section>
 
-        // Optional: Allow pressing Enter to search
-        document.getElementById('searchInput').addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                performSearch();
-            }
-        });
-    </script>
+  <footer>
+    &copy; 2025 Jane Doe · Contact: janedoe@example.com
+  </footer>
+
 </body>
 </html>
