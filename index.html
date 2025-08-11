@@ -2,122 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Architectural Portfolio</title>
-  <style>
-    :root {
-      --font: 'Helvetica Neue', sans-serif;
-      --bg: #ffffff;
-      --text: #222222;
-      --accent: #888888;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: var(--font);
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      padding: 40px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    header h1 {
-      font-size: 2.5em;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      color: var(--accent);
-      font-size: 1em;
-      margin-top: 10px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    .project {
-      margin-bottom: 40px;
-    }
-
-    .project img {
-      width: 100%;
-      height: auto;
-      margin-top: 10px;
-      border: 1px solid #eee;
-    }
-
-    .project h2 {
-      font-size: 1.5em;
-      font-weight: 400;
-    }
-
-    .project p {
-      color: var(--accent);
-      font-size: 0.95em;
-      margin-top: 5px;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: var(--accent);
-      margin-top: 80px;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 20px 15px;
-      }
-
-      header h1 {
-        font-size: 2em;
-      }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Berkay Kapucu – Architect Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+  <nav>
+    <div class="logo">Berkay Kapucu</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <header>
-    <h1>Jane Doe</h1>
-    <p>Architect | Designer | Minimalist</p>
+    <h1>Architect & Designer</h1>
+    <p>Engaged and detail-oriented with a focus on sustainable design.</p>
   </header>
 
-  <section>
-    <div class="project">
-      <h2>Modern Courtyard House</h2>
-      <p>Residential Architecture – 2024</p>
-      <img src="https://via.placeholder.com/900x600?text=Project+1" alt="Modern Courtyard House" />
-    </div>
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Architect (M.Sc.) with international experience in Germany and Italy. Focused on conceptual and execution phases (LPh 1–5). Proficient in BIM and CAD. Passionate about sustainable architecture and innovative forms.
+    </p>
+  </section>
 
-    <div class="project">
-      <h2>Urban Loft Renovation</h2>
-      <p>Interior Architecture – 2023</p>
-      <img src="https://via.placeholder.com/900x600?text=Project+2" alt="Urban Loft Renovation" />
-    </div>
-
-    <div class="project">
-      <h2>Community Library Pavilion</h2>
-      <p>Public Architecture – 2022</p>
-      <img src="https://via.placeholder.com/900x600?text=Project+3" alt="Library Pavilion" />
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="job">
+        <h3>Architect – Carsten Roth Architekt</h3>
+        <span>Hamburg · Apr 2023 – May 2024</span>
+        <p>Project responsibility for a mixed-use residential complex. From concept to execution. Involvement in competitions, facade and material research, and BIM coordination.</p>
+      </div>
+      <div class="job">
+        <h3>Architect – BKS Architekten</h3>
+        <span>Hamburg · Oct 2022 – Mar 2023</span>
+        <p>Educational buildings and competition entry winner. Concept, technical planning, and 3D visualization.</p>
+      </div>
+      <!-- Add more jobs here -->
     </div>
   </section>
 
+  <section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="gallery">
+      <div class="project">
+        <img src="https://via.placeholder.com/400x250?text=Project+1" alt="Project 1">
+        <div class="overlay">
+          <h3>Courtyard Housing</h3>
+          <p>Residential Concept, 2024</p>
+        </div>
+      </div>
+      <div class="project">
+        <img src="https://via.placeholder.com/400x250?text=Project+2" alt="Project 2">
+        <div class="overlay">
+          <h3>Urban Loft Renovation</h3>
+          <p>Interior Architecture, 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Revit</li>
+      <li>Rhino</li>
+      <li>Sketchup</li>
+      <li>Grasshopper</li>
+      <li>Photoshop</li>
+      <li>Vray</li>
+      <li>AutoCAD</li>
+      <li>Archicad</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:kapucuberkay.de@gmail.com">kapucuberkay.de@gmail.com</a></p>
+    <p>Phone: +49 162 7647222</p>
+    <p>Location: Hamburg, Germany</p>
+  </section>
+
   <footer>
-    &copy; 2025 Jane Doe · Contact: janedoe@example.com
+    <p>&copy; 2025 Berkay Kapucu</p>
   </footer>
 
 </body>
