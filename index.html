@@ -1,1 +1,135 @@
-aa
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Start Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Ensures the page takes at least the full viewport height */
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        .search-bar input[type="text"] {
+            width: calc(100% - 80px); /* Adjust width to account for button */
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .links-section {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .link-item a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #e9e9e9;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-item a:hover {
+            background-color: #dcdcdc;
+            color: #0056b3;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Personal Start Page! 🚀</h1>
+        <p>Quickly access your favorite sites and search the web.</p>
+
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search Google...">
+            <button onclick="performSearch()">Search</button>
+        </div>
+
+        <div class="links-section">
+            <div class="link-item"><a href="https://www.google.com" target="_blank">Google</a></div>
+            <div class="link-item"><a href="https://www.youtube.com" target="_blank">YouTube</a></div>
+            <div class="link-item"><a href="https://github.com" target="_blank">GitHub</a></div>
+            <div class="link-item"><a href="https://stackoverflow.com" target="_blank">Stack Overflow</a></div>
+            <div class="link-item"><a href="https://www.reddit.com" target="_blank">Reddit</a></div>
+            <div class="link-item"><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a></div>
+            <div class="link-item"><a href="#" onclick="alert('Add your custom link here!'); return false;">Custom Link 1</a></div>
+            <div class="link-item"><a href="#" onclick="alert('Add another custom link here!'); return false;">Custom Link 2</a></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 My Start Page. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+            }
+        }
+
+        // Optional: Allow pressing Enter to search
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+    </script>
+</body>
+</html>
