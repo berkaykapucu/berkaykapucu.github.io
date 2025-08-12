@@ -1,236 +1,198 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Architectural portfolio of I. Berkay Kapucu — projects, CV, and contact.">
-<title>I. Berkay Kapucu — Architecture Portfolio</title>
-<style>
-:root{
-  --bg:#0f172a;
-  --text:#e8ecef;
-  --muted:#9ca3af;
-  --accent:#c6a869; /* muted brass */
-  --card:#151d2b;
-  --max:1100px;
-  --radius:12px;
-  --gap:1.5rem;
-  --ff-head: 'Inter', system-ui, sans-serif;
-  --ff-body: 'Inter', system-ui, sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:var(--ff-body);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
-  -webkit-font-smoothing:antialiased;
-  padding:0 1rem;
-}
-img{max-width:100%;display:block}
-a{color:var(--accent);text-decoration:none}
-a:hover{opacity:0.8}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="I. Berkay Kapucu — Architecture portfolio: façade design, sustainability, competitions." />
+  <title>I. Berkay Kapucu — Architecture & Design</title>
 
-/* Layout */
-.site{max-width:var(--max);margin:0 auto;padding:2rem 0}
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 0;position:sticky;top:0;background:var(--bg);z-index:100;
-}
-.brand{font-weight:700;font-family:var(--ff-head);font-size:1.2rem}
-nav{display:flex;gap:1rem}
-nav a{padding:.4rem .6rem;border-radius:6px}
-nav a:hover{background:rgba(255,255,255,0.05)}
+  <!-- Prefers system fonts for fast rendering; replace with Google Fonts if you want -->
+  <link rel="stylesheet" href="style.css">
 
-/* Hero */
-.hero{text-align:center;padding:4rem 1rem}
-.hero h1{
-  font-size:clamp(1.8rem,4vw,3rem);
-  font-family:var(--ff-head);
-  font-weight:600;
-  margin-bottom:1rem;
-}
-.hero p{color:var(--muted);max-width:65ch;margin:0 auto 1.5rem}
-.hero .points{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;color:var(--muted);font-size:.95rem}
+  <!-- Favicons: replace with your favicons -->
+  <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 
-/* Sections */
-section{margin-top:4rem}
-h2{
-  font-family:var(--ff-head);
-  font-size:1.4rem;
-  font-weight:600;
-  margin-bottom:1rem;
-}
-.card{background:var(--card);padding:1.25rem;border-radius:var(--radius)}
-
-/* About + CV */
-.about-grid{display:grid;gap:var(--gap)}
-@media(min-width:800px){.about-grid{grid-template-columns:1fr 1fr}}
-
-.services ul{list-style:none;display:grid;gap:.5rem}
-.services li{background:rgba(255,255,255,0.03);padding:.6rem;border-radius:8px;font-size:.95rem}
-.timeline{list-style:none;padding:0;display:grid;gap:.75rem;font-size:.95rem}
-.timeline li{border-left:2px solid var(--accent);padding-left:.75rem}
-.download-cv{display:inline-block;margin-top:1rem;padding:.5rem .8rem;border:1px solid var(--accent);border-radius:6px;color:var(--accent);font-size:.95rem}
-
-/* Projects */
-.projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1rem;
-}
-.project{
-  position:relative;
-  overflow:hidden;
-  border-radius:var(--radius);
-}
-.project img{
-  transition:transform .4s ease;
-}
-.project:hover img{transform:scale(1.05)}
-.project .overlay{
-  position:absolute;inset:0;
-  background:rgba(0,0,0,0.45);
-  opacity:0;transition:opacity .3s ease;
-  display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:1rem;
-}
-.project:hover .overlay{opacity:1}
-.project .overlay strong{color:white;font-size:1.05rem}
-.project .overlay span{color:var(--muted);font-size:.9rem;margin-top:.25rem}
-
-/* Contact */
-.contact-grid{display:grid;gap:var(--gap)}
-@media(min-width:800px){.contact-grid{grid-template-columns:2fr 1fr}}
-form{display:grid;gap:.75rem}
-input,textarea{
-  background:transparent;border:1px solid rgba(255,255,255,0.1);
-  padding:.6rem;border-radius:6px;color:var(--text);
-}
-input:focus,textarea:focus{border-color:var(--accent);outline:none}
-button{
-  background:var(--accent);border:none;padding:.6rem;
-  color:#000;font-weight:600;border-radius:6px;cursor:pointer;
-}
-button:hover{opacity:.85}
-.social a{margin-right:.5rem}
-
-/* Footer */
-footer{margin-top:4rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.05);color:var(--muted);font-size:.9rem;text-align:center}
-</style>
+  <!-- Social / SEO Open Graph -->
+  <meta property="og:title" content="I. Berkay Kapucu — Architecture & Design">
+  <meta property="og:description" content="Façade strategies, sustainability-led architecture, competitions and technical design.">
+  <meta property="og:type" content="website">
 </head>
 <body>
-<div class="site">
+  <div class="site" id="site">
+    <header class="site-header" data-visible>
+      <div class="wrap header-inner">
+        <a class="brand" href="#hero" aria-label="Home — I. Berkay Kapucu">I. Berkay Kapucu</a>
 
-<header>
-  <div class="brand">I. Berkay Kapucu</div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+        <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
 
-<section class="hero">
-  <h1>Architectural design with precision and purpose</h1>
-  <p>I design buildings and public spaces that merge sustainable strategies, refined materiality, and technical clarity — from early concept to execution.</p>
-  <div class="points">
-    <div>Façade Design</div>
-    <div>Sustainability Strategies</div>
-    <div>Competition Expertise</div>
-  </div>
-</section>
-
-<section id="about">
-  <h2>About & CV</h2>
-  <div class="about-grid">
-    <div class="card">
-      <p>I am an architect specializing in pragmatic design strategies, façade development, and the integration of sustainability principles from early concept to technical design. My approach is collaborative, detail-oriented, and committed to civic contribution.</p>
-      <div class="services" style="margin-top:1rem">
-        <h3>Services</h3>
-        <ul>
-          <li>Concept & Schematic Design (LPH 1–3)</li>
-          <li>Façade concepts & material studies</li>
-          <li>BIM coordination & planning documents</li>
-          <li>Competition & presentation sets</li>
-        </ul>
+        <nav id="main-nav" class="nav" aria-label="Primary">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <a class="cta" href="/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+        </nav>
       </div>
-    </div>
-    <div class="card">
-      <h3>Experience Snapshot</h3>
-      <ul class="timeline">
-        <li>Carsten Roth Architekt — Project Architect (Spaldingstraße Bürogebäude, Altona Wohnprojekt, Harburg Studentenhaus)</li>
-        <li>Studio Fuksas — International projects (Al Maktoum Airport, The Line)</li>
-        <li>BKSA / Assmann Gruppe — Competition winner (Erich Kästner Schule)</li>
-      </ul>
-      <a href="/cv.pdf" class="download-cv">Download Full CV</a>
-    </div>
-  </div>
-</section>
+    </header>
 
-<section id="projects">
-  <h2>Selected Projects</h2>
-  <div class="projects">
-    <div class="project">
-      <img src="spalding.jpg" alt="Spaldingstraße Bürogebäude">
-      <div class="overlay">
-        <strong>Spaldingstraße Bürogebäude</strong>
-        <span>20,000 m² — Façade & sustainability strategies</span>
-      </div>
-    </div>
-    <div class="project">
-      <img src="altona.jpg" alt="Altona Wohnprojekt">
-      <div class="overlay">
-        <strong>Altona Wohnprojekt</strong>
-        <span>10,000 m² — Heritage-sensitive housing</span>
-      </div>
-    </div>
-    <div class="project">
-      <img src="harburg.jpg" alt="Studentenhaus Harburg">
-      <div class="overlay">
-        <strong>Studentenhaus Harburg</strong>
-        <span>10,000 m² — Daylighting & coordination</span>
-      </div>
-    </div>
-  </div>
-</section>
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="wrap hero-inner">
+          <div class="hero-content">
+            <h1 id="hero-title" class="reveal">Architectural design with precision & purpose</h1>
+            <p class="lead reveal">I develop façade strategies, integrated sustainability, and competition-ready documentation — from concept to technical design. Available for collaboration across Germany & Europe.</p>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="contact-grid">
-    <div class="card">
-      <form onsubmit="sendEmail(event)">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
-        <textarea name="message" rows="5" placeholder="Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-    <div class="card">
-      <h3>Availability</h3>
-      <p>Open for freelance work and employment in Germany and Europe.</p>
-      <div class="social" style="margin-top:1rem">
-        <a href="#">LinkedIn</a>
-        <a href="#">Instagram</a>
-      </div>
-    </div>
-  </div>
-</section>
+            <div class="hero-actions reveal">
+              <a class="btn-primary" href="#contact">Get in touch</a>
+              <a class="btn-ghost" href="#projects">View projects</a>
+            </div>
+          </div>
 
-<footer>
-  © <span id="year"></span> I. Berkay Kapucu — Minimal Portfolio
-</footer>
+          <aside class="hero-snapshot card reveal" aria-hidden="false">
+            <dl>
+              <dt>Location</dt><dd>Hamburg, Germany</dd>
+              <dt>Specialties</dt><dd>Façade • Sustainability • Competitions</dd>
+              <dt>Languages</dt><dd>German (professional), English (native-level)</dd>
+            </dl>
+          </aside>
+        </div>
+      </section>
 
-</div>
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-function sendEmail(e){
-  e.preventDefault();
-  const form = e.target;
-  const subject = encodeURIComponent("Website inquiry from " + form.name.value);
-  const body = encodeURIComponent(form.message.value + "\n\nFrom: " + form.name.value + " (" + form.email.value + ")");
-  window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
-}
-</script>
-</body>
-</html>
+      <!-- ABOUT + MINI CV -->
+      <section id="about" class="section" aria-labelledby="about-title">
+        <div class="wrap">
+          <h2 id="about-title" class="section-title reveal">About & Mini-CV</h2>
+
+          <div class="about-grid">
+            <article class="card reveal">
+              <p>I am an architect focused on pragmatic strategies, façade development and the integration of sustainability principles from early concept to technical execution. My practice bridges concept, material research, and rigorous planning coordination.</p>
+
+              <h3>Services</h3>
+              <ul class="services">
+                <li>Concept / Schematic design (LPH 1–3)</li>
+                <li>Façade design & mockups</li>
+                <li>BIM coordination & planning documents</li>
+                <li>Competitions & presentation sets</li>
+              </ul>
+            </article>
+
+            <aside class="card timeline-card reveal" aria-labelledby="cv-title">
+              <h3 id="cv-title">Experience snapshot</h3>
+              <ul class="timeline">
+                <li><strong>Carsten Roth Architekt</strong> — Projektarchitekt (Spaldingstraße, Altona, Harburg)</li>
+                <li><strong>Studio Fuksas</strong> — International projects (Al Maktoum Airport, The Line)</li>
+                <li><strong>BKSA / Assmann Gruppe</strong> — Competition (Erich Kästner Schule)</li>
+              </ul>
+
+              <div style="margin-top:1rem">
+                <a class="btn-download" href="/cv.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="wrap">
+          <h2 id="projects-title" class="section-title reveal">Selected Projects</h2>
+          <p class="muted reveal">A curated selection — click to open gallery and short case notes.</p>
+
+          <div class="projects-grid" aria-live="polite">
+            <!-- Project item: update image src and data attributes -->
+            <article class="project card reveal" tabindex="0" role="button"
+                     data-title="Spaldingstraße Bürogebäude"
+                     data-sub="Façade & sustainability strategies — 20,000 m²"
+                     data-images='["/assets/spalding-1.jpg","/assets/spalding-2.jpg"]'>
+              <figure class="project-media">
+                <img src="/assets/spalding-1-thumb.jpg" data-src="/assets/spalding-1.jpg" alt="Spaldingstraße Bürogebäude — façade study" loading="lazy">
+                <figcaption class="project-caption">
+                  <strong>Spaldingstraße Bürogebäude</strong>
+                  <span class="muted">Façade & sustainability strategies</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="project card reveal" tabindex="0" role="button"
+                     data-title="Altona Wohnprojekt"
+                     data-sub="Heritage-sensitive housing — 10,000 m²"
+                     data-images='["/assets/altona-1.jpg","/assets/altona-2.jpg"]'>
+              <figure class="project-media">
+                <img src="/assets/altona-1-thumb.jpg" data-src="/assets/altona-1.jpg" alt="Altona Wohnprojekt — heritage sensitive proposal" loading="lazy">
+                <figcaption class="project-caption">
+                  <strong>Altona Wohnprojekt</strong>
+                  <span class="muted">Heritage-sensitive housing</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <article class="project card reveal" tabindex="0" role="button"
+                     data-title="Studentenhaus Harburg"
+                     data-sub="Daylighting, coordination — 10,000 m²"
+                     data-images='["/assets/harburg-1.jpg","/assets/harburg-2.jpg"]'>
+              <figure class="project-media">
+                <img src="/assets/harburg-1-thumb.jpg" data-src="/assets/harburg-1.jpg" alt="Studentenhaus Harburg — concept model" loading="lazy">
+                <figcaption class="project-caption">
+                  <strong>Studentenhaus Harburg</strong>
+                  <span class="muted">Daylighting & coordination</span>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Add more .project elements as needed -->
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section" aria-labelledby="contact-title">
+        <div class="wrap">
+          <h2 id="contact-title" class="section-title reveal">Contact</h2>
+
+          <div class="contact-grid">
+            <div class="card reveal">
+              <p class="muted">Prefer email — or use the quick message below. Replace the mailto fallback with your server endpoint to collect messages.</p>
+
+              <form id="contact-form" class="contact-form" onsubmit="sendMail(event)">
+                <label class="visually-hidden" for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required>
+
+                <label class="visually-hidden" for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@domain.com" required>
+
+                <label class="visually-hidden" for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Short message" required></textarea>
+
+                <div class="form-actions">
+                  <button class="btn-primary" type="submit">Send message</button>
+                  <a class="btn-ghost" href="mailto:youremail@example.com">Or email directly</a>
+                </div>
+              </form>
+            </div>
+
+            <aside class="card reveal">
+              <h3>Availability</h3>
+              <p class="muted">Open to freelance commissions and employment. References & project PDFs available on request.</p>
+
+              <div class="contact-meta" style="margin-top:1rem">
+                <p><strong>Email</strong><br><a href="mailto:youremail@example.com">youremail@example.com</a></p>
+                <p><strong>Location</strong><br>Hamburg, Germany</p>
+              </div>
+
+              <div style="margin-top:1rem">
+                <a class="link-muted" href="#" aria-label="LinkedIn">LinkedIn</a> ·
+                <a class="link-muted" href="#" aria-label="Instagram">Instagram</a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- PROJECT MODAL (lightbox) -->
+    <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-inner" role="document">
+        <button id="modal-close" class="modal-close" aria-label="Close project">✕</button>
