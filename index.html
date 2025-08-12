@@ -251,7 +251,155 @@ Notes on customization:
           </aside>
         </div>
       </section>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Left Endless Scrolling Pattern</title>
+<style>
+  :root{
+    --left-width: 140px; /* change the narrow column width here */
+  }
 
+  html,body{
+    height:100%;
+    margin:0;
+    font-family:system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  }
+
+  /* Left narrow column - fixed to the left and full height */
+  .left-strip{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width:var(--left-width);
+    overflow-y:auto;              /* allow user to scroll with cursor there */
+    -webkit-overflow-scrolling:touch;
+    background:#111;             /* fallback color */
+    box-shadow: 2px 0 8px rgba(0,0,0,0.12);
+  }
+
+  /* The repeated pattern blocks we will duplicate in JS */
+  .pattern{
+    height:100vh;                /* one "block" has viewport height (adjustable) */
+    background-repeat:repeat-y;  /* repeat vertically */
+    background-position:center;
+    background-size:cover;       /* or 'auto' if you want exact tile sizes */
+  }
+
+  /* Example main content to the right so you can test scrolling the left strip independently */
+  .main{
+    margin-left:calc(var(--left-width) + 20px);
+    padding:30px;
+  }
+
+  /* small helper to show instructions */
+  .hint{
+    font-size:13px;
+    color:#666;
+    margin-top:8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Left narrow scrolling area -->
+<div id="left" class="left-strip" aria-label="Endless repeating pattern">
+  <!-- We'll populate two identical pattern blocks in the HTML so JS can loop them seamlessly -->
+  <div class="pattern" id="patternA" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=60');"></div>
+  <div class="pattern" id="patternB" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=60');"></div>
+</div>
+
+<!-- Main page content (so you can see the left column is separate) -->
+<main class="main">
+  <h1>Page with left endless scrolling pattern</h1>
+  <p>Move your cursor to the narrow left strip and use your mouse wheel / trackpad / touch to scroll the repeating pattern up and down. The strip loops infinitely.</p>
+  <p class="hint">To use your own image, replace the <code>background-image</code> URLs in the two .pattern elements with your image URL. For perfect seamlessness choose a vertically tileable image (top and bottom edges match).</p>
+
+  <p>...add the rest of your page here...</p>
+  <div style="height:2000px;"></div>
+</main>
+
+<script>
+/*
+  Seamless looping scroll logic:
+  - There are two identical stacked blocks (patternA and patternB).
+  - When the user scrolls past one block's height, we jump the scroll position by that height.
+  - Because the blocks are identical the visual continuity remains seamless.
+  - The script also handles fast wheel or touch gestures and keeps things smooth using rAF.
+*/
+
+(function(){
+  const container = document.getElementById('left');
+
+  // Determine the single-block height (we used 100vh in CSS, but compute actual rendered height)
+  function singleBlockHeight(){
+    // the block elements are the first child (patternA). Use its offsetHeight
+    const first = container.querySelector('.pattern');
+    return first ? first.offsetHeight : container.clientHeight;
+  }
+
+  // We will throttle scroll handling with rAF to avoid jitter
+  let ticking = false;
+  function onScroll(){
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const h = singleBlockHeight();
+      const st = container.scrollTop;
+
+      // Scrolled down past one block -> subtract one block to wrap
+      if (st >= h){
+        container.scrollTop = st - h;
+      }
+      // Scrolled above the top (fast wheel upwards) -> add one block to wrap
+      else if (st <= 0){
+        container.scrollTop = st + h;
+      }
+      ticking = false;
+    });
+  }
+
+  // Initialize: set scrollTop to h (middle) so the user can scroll both directions smoothly.
+  function init(){
+    // if the container height is small we still work with computed height
+    const h = singleBlockHeight();
+    // Some browsers need a tiny delay for layout to stabilize
+    setTimeout(() => {
+      // If scrollHeight is only equal to h (unlikely when we have two blocks), ensure two copies exist.
+      // Set initial scroll to h so we're centered.
+      container.scrollTop = h;
+    }, 50);
+  }
+
+  // Listen to scroll events
+  container.addEventListener('scroll', onScroll, {passive: true});
+
+  // Optional: prevent page from scrolling when pointer is over the left strip (so scrolling there doesn't scroll the main page).
+  // The CSS fixed left strip + overflow already isolates the scroll; this is an extra guard for some browsers/devices.
+  container.addEventListener('wheel', (e) => {
+    // if the container can scroll, prevent the outer page from moving
+    // but only if event is vertical
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.stopPropagation();
+    }
+  }, {passive:true});
+
+  // Initialize on load and on resize (in case vh changes)
+  window.addEventListener('load', init);
+  window.addEventListener('resize', function(){
+    // recenter to the block height after resize
+    const h = singleBlockHeight();
+    container.scrollTop = h;
+  });
+
+})();
+</script>
+
+</body>
+</html>
       <footer>
         <div style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;align-items:center">
           <div>© <span id="year"></span> Your Name</div>
